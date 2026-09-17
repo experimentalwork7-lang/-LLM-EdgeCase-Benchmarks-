@@ -1,0 +1,39 @@
+# [BENCHMARK] Task: E-Commerce Ticket Data Extraction & Schema Optimization
+
+> **Goal:** Test whether free LLMs can parse customer complaints into strict, machine-readable JSON without formatting errors or conversational text.
+
+---
+
+## 1. Test Setup
+
+* **Model Tested:** Gemini 1.5 Flash (via Google AI Studio)
+* **Raw User Input:**
+  > "HEY! I bought two black winter jackets (Order #88392) last Tuesday. One of them arrived with a broken zipper! I tried calling but no one answered. I want a replacement for the broken jacket ASAP or I'm canceling my subscription! Contact me at alex99@email.com."
+
+---
+
+## 2. Iterative Schema Development
+
+During testing, the JSON output went through three iterations to move from basic extraction to an API-ready standard:
+
+### Iteration 1 (Baseline Output)
+* Unstructured strings and missing numerical counts.
+* Used string flags for risk factors (`"cancellation_risk": "yes"`).
+
+### Iteration 2 (Final Schema)
+```json
+{
+  "order_number": "88392",
+  "product_details": "black winter jacket",
+  "damaged_units": 1,
+  "stock_units": 1,
+  "emergency_level": "high",
+  "cancellation_risk": true,
+  "contact_email": "alex99@email.com",
+  "important_points": [
+    "broken zipper reported",
+    "customer requested replacement",
+    "unsuccessful phone support attempt",
+    "urgent resolution required"
+  ]
+}
