@@ -37,3 +37,11 @@ During testing, the JSON output went through three iterations to move from basic
     "urgent resolution required"
   ]
 }
+
+the prompt tol used .
+
+ get it and strip it down , no emoji , no custom charactors , only whats needed , simple jason only , jason format , mark down important points and ad it to jason format .(  get and  test to rules ;
+rule 1 : stranderdize keys to lower case 
+rule 2: wrap items inside array objects
+rule 3: convert into emergency level  add quantity level and format it to like no of damaged units and no of stock units , ad product details in the damaged projects and necessary information .
+ , and cancletation risk fields make it simple insted of yes convert t to simle logice ex -  true   . If the output is always for a single incoming email ticket, return a single JSON object { ... } directly rather than a list containing one item. Arrays are typically reserved for processing batches of multiple tickets at once. )
